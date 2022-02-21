@@ -23,7 +23,7 @@ trigger CreateNewQuoteTrigger on Quote (before insert) {
             if(q2.Status == 'Submitted for Approval') {
                 approvingQuoteID = q2.Id;
                 approvingQuoteName = q2.Name;
-            //////////////
+            //
             }
             quoteToUpdateList.add(q2);
         }
