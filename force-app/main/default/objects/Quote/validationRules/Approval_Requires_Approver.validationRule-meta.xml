@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approval_Requires_Approver</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(Status,&quot;Submitted for Approval&quot;),
+ISBLANK(Approver__c))</errorConditionFormula>
+    <errorDisplayField>Approver__c</errorDisplayField>
+    <errorMessage>You need to designate an approver in order to submit for approval</errorMessage>
+</ValidationRule>

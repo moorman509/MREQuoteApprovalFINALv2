@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_Requires_Approval</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+TEXT(PRIORVALUE(Status)) == &quot;Under Review&quot;,
+ISCHANGED(Status),
+NOT(ISPICKVAL(Status,&quot;Submitted for Approval&quot;)))</errorConditionFormula>
+    <errorMessage>You need to submit your quote for approval</errorMessage>
+</ValidationRule>

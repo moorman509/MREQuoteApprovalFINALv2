@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Uploaded_Documents_Required_for_Approval</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISPICKVAL(Status,&quot;Submitted for Approval&quot;),
+Documents_Uploaded__c = FALSE)</errorConditionFormula>
+    <errorMessage>An approval can not be submitted without uploaded documents</errorMessage>
+</ValidationRule>

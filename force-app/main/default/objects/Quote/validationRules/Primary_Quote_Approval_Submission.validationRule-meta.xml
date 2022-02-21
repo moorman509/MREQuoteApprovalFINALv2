@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Quote_Approval_Submission</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( Status, &quot;Submitted for Approval&quot;),
+Primary_Quote__c = FALSE)</errorConditionFormula>
+    <errorMessage>Only Primary Quotes can be submitted for approval</errorMessage>
+</ValidationRule>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Submit_for_Approval</name>
-        <label>Submit for Approval</label>
-        <locationX>328</locationX>
-        <locationY>381</locationY>
+        <name>Submit_Quote_for_Approval</name>
+        <label>Submit Quote for Approval</label>
+        <locationX>926</locationX>
+        <locationY>468</locationY>
         <actionName>submit</actionName>
         <actionType>submit</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>processDefinitionNameOrId</name>
             <value>
-                <stringValue>MRE_Quote_Approval_v2</stringValue>
+                <stringValue>Quote_Approval_Process</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -22,8 +22,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
-    <apiVersion>53.0</apiVersion>
-    <description>updated quote status</description>
+    <apiVersion>54.0</apiVersion>
     <interviewLabel>Submit Quote for Approval {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Submit Quote for Approval</label>
     <processMetadataValues>
@@ -46,21 +45,27 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationX>714</locationX>
+        <locationY>48</locationY>
         <connector>
-            <targetReference>Submit_for_Approval</targetReference>
+            <targetReference>Submit_Quote_for_Approval</targetReference>
         </connector>
-        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>Status__c</field>
+            <field>Status</field>
             <operator>EqualTo</operator>
             <value>
                 <stringValue>Submitted for Approval</stringValue>
             </value>
         </filters>
-        <object>Quote__c</object>
+        <filters>
+            <field>Status</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Quote</object>
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>

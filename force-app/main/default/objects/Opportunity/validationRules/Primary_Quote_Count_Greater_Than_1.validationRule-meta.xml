@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Quote_Count_Greater_Than_1</fullName>
+    <active>true</active>
+    <description>Validates that a single Opportunity can only have 1 primary quote</description>
+    <errorConditionFormula>Primary_Quote_Count__c &gt; 1</errorConditionFormula>
+    <errorMessage>Opportunities can only have a single Primary Quote</errorMessage>
+</ValidationRule>
