@@ -6,6 +6,7 @@
     <label>Approver</label>
     <lookupFilter>
         <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
         <filterItems>
             <field>User.LastName</field>
             <operation>equals</operation>
